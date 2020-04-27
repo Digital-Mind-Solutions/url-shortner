@@ -22,7 +22,7 @@ public class UrlShortenerModuleConfig {
     public static final String API_ENABLED = PREFIX + ".api.enabled";
     public static final String API_UI_ENABLED = PREFIX + ".api.ui-enabled";
 
-    public static final String ROOT_PACKAGE = "corg.digitalmind." + MODULE;
+    public static final String ROOT_PACKAGE = "org.digitalmind." + MODULE;
     public static final String CONFIG_PACKAGE = ROOT_PACKAGE + ".config";
     public static final String ENTITY_PACKAGE = ROOT_PACKAGE + ".entity";
     public static final String REPOSITORY_PACKAGE = ROOT_PACKAGE + ".repository";

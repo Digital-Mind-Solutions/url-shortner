@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.digitalmind.buildingblocks.core.jpaauditor.entity.ContextVersionableAuditModel;
+import org.digitalmind.buildingblocks.core.jpautils.entity.ContextVersionableAuditModel;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
