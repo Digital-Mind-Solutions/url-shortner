@@ -75,7 +75,7 @@ public class UrlShortnerServiceImpl implements UrlShortnerService {
     }
 
     @Override
-    public UrlShortner createUrl(String longUrl, int httpStatus, int ttlSeconds, int parts,  int iterationMin, int iterationMax) {
+    public UrlShortner createUrl(String longUrl, int httpStatus, int ttlSeconds, int parts, int iterationMin, int iterationMax) {
         UrlShortner urlShortner = null;
         if (!(iterationMin <= iterationMax)) {
             throw new UrlShortnerException("IterationMin " + iterationMin + " must be lower than iterationMax " + iterationMax);
@@ -87,7 +87,7 @@ public class UrlShortnerServiceImpl implements UrlShortnerService {
 
         while (urlShortner == null && iteration <= iterationMax)
             try {
-                shortUrl = UrlShortnerUtil.getUrlShortToken(longUrl, parts, iteration);
+                shortUrl = UrlShortnerUtil.getUrlShortToken(longUrl, iteration, parts);
                 if (!urlShortnerRepository.existsByShortUrl(shortUrl)) {
                     UrlShortner urlShortnerCreate =
                             UrlShortner.builder()
@@ -101,7 +101,7 @@ public class UrlShortnerServiceImpl implements UrlShortnerService {
                 }
             } catch (Exception e) {
             } finally {
-                if (iteration == iterationMax && urlShortner == null) {
+                if (iteration >= iterationMax && urlShortner == null) {
                     throw new UrlShortnerException("Unable to shorten link using iterations between " + iterationMin + " and " + iterationMax);
                 }
                 iteration = iteration + 1;
