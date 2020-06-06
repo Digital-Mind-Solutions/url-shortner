@@ -60,7 +60,7 @@ public class UrlShortnerUtil {
         if (shortUrl == null || shortUrl.length() < SHORT_URL_PREFIX_LENGTH + CHECK_SUM_LENGTH) {
             return false;
         }
-        String token = shortUrl.substring(SHORT_URL_PREFIX_LENGTH, shortUrl.length() - SHORT_URL_PREFIX_LENGTH - CHECK_SUM_LENGTH);
+        String token = shortUrl.substring(SHORT_URL_PREFIX_LENGTH, shortUrl.length() - CHECK_SUM_LENGTH);
         String checkSum = shortUrl.substring(shortUrl.length() - CHECK_SUM_LENGTH);
         return checkSum.equalsIgnoreCase(getChecksum(token));
     }
